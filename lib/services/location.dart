@@ -11,7 +11,9 @@ class Location {
 
       _latitude = position.latitude;
       _longitude = position.longitude;
-    } catch (e) {}
+    } catch (e) {
+      print(e);
+    }
   }
 
   double getLat() => _latitude;
