@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:clima/services/location.dart';
 import 'package:http/http.dart' as http;
@@ -26,7 +28,15 @@ class _LoadingScreenState extends State<LoadingScreen> {
         'https://samples.openweathermap.org/data/2.5/weather?lat=35&lon=139&appid=439d4b804bc8187953eb36d2a8c26a02');
 
     if (response.statusCode == 200) {
-    } else {}
+      String data = response.body;
+      var decodeData = jsonDecode(data);
+
+      var temperature = decodeData['main']['temp'];
+      var condition = decodeData['weather'][0]['id'];
+      var cityName = decodeData['name'];
+    } else {
+      print(response.statusCode);
+    }
   }
 
   @override
