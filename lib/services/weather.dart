@@ -5,7 +5,7 @@ const apiKey = 'cbd6ca69c6cac24bf2806f537521b0e9';
 const openWeatherMapURL = 'https://api.openweathermap.org/data/2.5/weather';
 
 class WeatherModel {
-  Future<dynamic> getWeatherLocation() async {
+  Future<dynamic> getLocationWeather() async {
     Location location = Location();
     await location.getCurrentLocation();
 
